@@ -13,7 +13,8 @@ module Jekyll
       return if n_posts == 0
 
       sort = (site.config['hatena_popular_sort']) || 'count'
-      xml = open("http://b.hatena.ne.jp/entrylist?mode=rss&sort=#{sort}&url=#{site.config['url']}",
+      url = (site.config.key?('hatena_popular_url') and site.config['hatena_popular_url'] != "") ?  site.config['hatena_popular_url'] : site.config['url']
+      xml = open("http://b.hatena.ne.jp/entrylist?mode=rss&sort=#{sort}&url=#{url}",
                  {'User-Agent' => 'Opera/9.80 (Windows NT 5.1; U; ja) Presto/2.7.62 Version/11.01 '}).read
       doc = REXML::Document.new xml
 
@@ -26,10 +27,9 @@ module Jekyll
         end
         count_el = i.elements['hatena:bookmarkcount']
         next if count_el.nil?
-        count = count_el.text
         title = i.elements['title'].text.sub(/ - #{site.config['title']}/,"")
         link = i.elements['link'].text
-        img = i.elements['content:encoded'].text.match(/(http:){1}[\S_-]+\.(?:jpg|gif|png)/)[0]
+        img = i.elements['content:encoded'].text.match(/(http:){1}[\S]+\.(?:jpg|gif|png)/)[0]
         html = html + "
   <li class='post index_click_box'>
     <div class='group'>
