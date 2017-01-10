@@ -28,8 +28,13 @@ module Jekyll
         count_el = i.elements['hatena:bookmarkcount']
         next if count_el.nil?
         title = i.elements['title'].text.sub(/ - #{site.config['title']}/,"")
-        link = i.elements['link'].text
         img = i.elements['content:encoded'].text.match(/(http:){1}[\S]+\.(?:jpg|gif|png)/)[0]
+        link = i.elements['link'].text
+        entry_link = link
+        if site.config['hatena_popular_ssl'] != false
+          img = img.gsub("http:", "https:")
+          link = link.gsub("http:", "https:")
+        end
         html = html + "
   <li class='post index_click_box'>
     <div class='group'>
@@ -38,11 +43,9 @@ module Jekyll
       </div>
       <a href='#{link}' class='click_box_link hatena-bookmark-entrytitle'>#{title}</a>
       <br>
-      <img src='//b.hatena.ne.jp/entry/image/#{link}'>
+      <img src='//b.hatena.ne.jp/entry/image/#{entry_link}'>
     </div>
   </li>"
-      #<a href='http://b.hatena.ne.jp/entry/#{link}'><img src='//b.hatena.ne.jp/entry/image/#{link}'></a>
-
         n = n + 1
       end
       html = html + '

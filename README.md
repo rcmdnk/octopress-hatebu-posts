@@ -23,4 +23,5 @@ hatena_popular_num: 5
 hatena_popular_posts: static # orig (Hatena's api), light (Take a list from entrylist, dynamically made by js), feed (Take a list from RSS, with thumbnails, dynamically by js), static (Take a list from RSS, with thumbnails, generated at `rake generate`)
 hatena_popular_sort: count # eid (new entries), hot (hot topics), count (order by hatebu counts)
 hatena_popular_title: Hatebu Popular Posts
+hatena_popular_ssl: true # if link/image in the list should be renamed to https or not
 ```

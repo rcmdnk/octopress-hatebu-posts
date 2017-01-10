@@ -1,7 +1,7 @@
 {% if site.hatena_popular_posts%}
 {% capture sort %}{% if site.hatena_popular_sort %}{{site.hatena_popular_sort}}{% else %}count{% endif %}{% endcapture %}
 <section>
-  <h1><a href="http://b.hatena.ne.jp/entrylist?mode=rss&sort={{sort}}&url={{site.url}}">{{site.hatena_popular_title}}</a></h1>
+  <h1><a href="//b.hatena.ne.jp/entrylist?mode=rss&sort={{sort}}&url={{site.url}}">{{site.hatena_popular_title}}</a></h1>
 {%if site.hatena_popular_posts == 'orig' %}
   <script language="javascript" type="text/javascript" src="//b.hatena.ne.jp/js/widget.js" charset="utf-8"></script>
   <script language="javascript" type="text/javascript">
