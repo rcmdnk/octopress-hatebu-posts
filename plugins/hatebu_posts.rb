@@ -39,11 +39,11 @@ module Jekyll
   <li class='post index_click_box'>
     <div class='group'>
       <div class='title-small-thumbnail'>
-        <a href='#{link}'><img src='#{img}'></a>
+        <a href='#{link}'><img src='#{img}' alt='#{File.basename(img, ".*")}'></a>
       </div>
       <a href='#{link}' class='click_box_link hatena-bookmark-entrytitle'>#{title}</a>
       <br>
-      <img src='//b.hatena.ne.jp/entry/image/#{entry_link}'>
+      <img src='//b.hatena.ne.jp/entry/image/#{entry_link}' alt='n_hatebu'>
     </div>
   </li>"
         n = n + 1
