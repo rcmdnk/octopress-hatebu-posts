@@ -18,7 +18,7 @@ module Jekyll
                  {'User-Agent' => 'Opera/9.80 (Windows NT 5.1; U; ja) Presto/2.7.62 Version/11.01 '}).read
       doc = REXML::Document.new xml
 
-      html = "<div id='hatena-bookmark-widget'><div>
+      html = "<div id='hatena-bookmark-widget'>
   <ul id='hatena_popular_posts' class='posts'>"
       n = 0
       doc.elements.each('rdf:RDF/item') do |i|
