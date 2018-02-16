@@ -28,7 +28,10 @@ module Jekyll
         count_el = i.elements['hatena:bookmarkcount']
         next if count_el.nil?
         title = i.elements['title'].text.sub(/ - #{site.config['title']}/,"")
-        img = i.elements['content:encoded'].text.match(/(http:){1}[\S]+\.(?:jpg|gif|png)/)[0]
+        img = i.elements['content:encoded'].text.match(/https?:[\S]+\.(?:jpg|gif|png)/)[0]
+        if img == "http://b.hatena.ne.jp/images/append.gif"
+          img = site.config['sitelogo']
+        end
         link = i.elements['link'].text
         entry_link = link
         if site.config['hatena_popular_ssl'] != false
