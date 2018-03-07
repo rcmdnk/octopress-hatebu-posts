@@ -30,20 +30,30 @@ module Jekyll
         title = i.elements['title'].text.sub(/ - #{site.config['title']}/,"")
         img = i.elements['content:encoded'].text.match(/https?:[\S]+\.(?:jpg|gif|png)/)[0]
         if img == "http://b.hatena.ne.jp/images/append.gif"
-          img = site.config['sitelogo']
+          if site.config['sitelogo']
+            img = site.config['sitelogo']
+          else
+            img = nil
+          end
         end
         link = i.elements['link'].text
         entry_link = link
         if site.config['hatena_popular_ssl'] != false
-          img = img.gsub("http:", "https:")
           link = link.gsub("http:", "https:")
+          if img
+            img = img.gsub("http:", "https:")
+          end
+        end
+        imghtml = ''
+        if img
+          imghtml = "<div class='title-small-thumbnail'>
+  <a href='#{link}'><img src='#{img}' alt='#{File.basename(img, ".*")}'></a>
+</div>"
         end
         html = html + "
   <li class='post index_click_box'>
     <div class='group'>
-      <div class='title-small-thumbnail'>
-        <a href='#{link}'><img src='#{img}' alt='#{File.basename(img, ".*")}'></a>
-      </div>
+      #{imghtml}
       <a href='#{link}' class='click_box_link hatena-bookmark-entrytitle'>#{title}</a>
       <br>
       <img src='//b.hatena.ne.jp/entry/image/#{entry_link}' alt='n_hatebu'>
