@@ -14,7 +14,7 @@ module Jekyll
 
       sort = (site.config['hatena_popular_sort']) || 'count'
       url = (site.config.key?('hatena_popular_url') and site.config['hatena_popular_url'] != "") ?  site.config['hatena_popular_url'] : site.config['url']
-      xml = open("http://b.hatena.ne.jp/entrylist?mode=rss&sort=#{sort}&url=#{url}",
+      xml = URI.open("http://b.hatena.ne.jp/entrylist?mode=rss&sort=#{sort}&url=#{url}",
                  {'User-Agent' => 'Opera/9.80 (Windows NT 5.1; U; ja) Presto/2.7.62 Version/11.01 '}).read
       doc = REXML::Document.new xml
 
