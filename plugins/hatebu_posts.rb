@@ -25,6 +25,18 @@ module Jekyll
         if n >= n_posts
           break
         end
+        if n == 2 and site.config['adsense_hatebu']
+          html = html + '
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-format="fluid"
+       data-ad-layout-key="-ho-f+t-8a+ir"
+       data-ad-client="ca-pub-{{site.adsense_id}}"
+       data-ad-slot="{{site.adsense_aside_hatebu}}"></ins>
+  <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>'
+        end
         count_el = i.elements['hatena:bookmarkcount']
         next if count_el.nil?
         title = i.elements['title'].text.sub(/ - #{site.config['title']}/,"")
