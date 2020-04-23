@@ -24,4 +24,5 @@ hatena_popular_posts: static # orig (Hatena's api), light (Take a list from entr
 hatena_popular_sort: count # eid (new entries), hot (hot topics), count (order by hatebu counts)
 hatena_popular_title: Hatebu Popular Posts
 hatena_popular_ssl: true # if link/image in the list should be renamed to https or not
+adsense_hatebu: xxxx # infeed ad, if you want
 ```
