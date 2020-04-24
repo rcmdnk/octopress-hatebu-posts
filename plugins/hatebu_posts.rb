@@ -27,6 +27,7 @@ module Jekyll
         end
         if n == 2 and site.config['adsense_hatebu']
           html = html + '
+  <li>
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-format="fluid"
@@ -35,7 +36,8 @@ module Jekyll
        data-ad-slot="{{site.adsense_aside_hatebu}}"></ins>
   <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>'
+  </script>
+  </li>'
         end
         count_el = i.elements['hatena:bookmarkcount']
         next if count_el.nil?
