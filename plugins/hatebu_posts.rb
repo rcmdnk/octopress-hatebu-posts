@@ -32,8 +32,8 @@ module Jekyll
        style="display:block"
        data-ad-format="fluid"
        data-ad-layout-key="-ho-f+t-8a+ir"
-       data-ad-client="ca-pub-{{site.adsense_id}}"
-       data-ad-slot="{{site.adsense_aside_hatebu}}"></ins>
+       data-ad-client="ca-pub-' + site.config['adsense_id'] + '
+       data-ad-slot="' + site.config['adsense_aside_hatebu'] + '"></ins>
   <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
