@@ -25,7 +25,7 @@ module Jekyll
         if n >= n_posts
           break
         end
-        if n == 2 and site.config['adsense_hatebu']
+        if n == 2 and site.config['adsense_aside_hatebu']
           html = html + '
   <li>
   <ins class="adsbygoogle"
