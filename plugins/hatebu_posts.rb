@@ -32,7 +32,7 @@ module Jekyll
        style="display:block"
        data-ad-format="fluid"
        data-ad-layout-key="-ho-f+t-8a+ir"
-       data-ad-client="ca-pub-' + site.config['adsense_id'].to_s + '
+       data-ad-client="ca-pub-' + site.config['adsense_id'].to_s + '"
        data-ad-slot="' + site.config['adsense_aside_hatebu'].to_s + '"></ins>
   <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
