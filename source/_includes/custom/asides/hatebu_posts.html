@@ -1,8 +1,8 @@
-{% if site.hatena_popular_posts%}
+{% if site.hatena_popular_posts %}
 {% capture sort %}{% if site.hatena_popular_sort %}{{site.hatena_popular_sort}}{% else %}count{% endif %}{% endcapture %}
 <section>
   <h2><a href="//b.hatena.ne.jp/entrylist?mode=rss&sort={{sort}}&url={{site.url}}">{{site.hatena_popular_title}}</a></h2>
-{%if site.hatena_popular_posts == 'orig' %}
+{% if site.hatena_popular_posts == 'orig' %}
   <script language="javascript" type="text/javascript" src="//b.hatena.ne.jp/js/widget.js" charset="utf-8"></script>
   <script language="javascript" type="text/javascript">
   Hatena.BookmarkWidget.url   = "{{site.url}}";
@@ -12,7 +12,7 @@
   Hatena.BookmarkWidget.theme = "notheme";
   Hatena.BookmarkWidget.load();
   </script>
-{%elsif site.hatena_popular_posts == 'light' %}
+{% elsif site.hatena_popular_posts == 'light' %}
   <div id="hatena-bookmark-widget" class="hatena-bookmark hatena-bookmark-widget-notheme"><div>
     <div class="hatena-bookmark-widget-body">
        <ul id='hatena_popular_posts' class='posts'>
@@ -68,7 +68,7 @@
       s.parentNode.insertBefore(news, s);
     }());
   </script>
-{%elsif site.hatena_popular_posts == 'feed' %}
+{% elsif site.hatena_popular_posts == 'feed' %}
   <div id="hatena-bookmark-widget"><div>
      <ul id='hatena_popular_posts' class='posts'>
      </ul>
@@ -118,8 +118,8 @@
     }
     google.setOnLoadCallback(getHatebuEntries);
     </script>
-{%elsif site.hatena_popular_posts == 'static' %}
+{% elsif site.hatena_popular_posts == 'static' %}
 {{site.hatebu_popular_posts_html}}
-{%endif%}
+{% endif %}
 </section>
 {% endif %}
